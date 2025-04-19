@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             stars.className = "stars";
             for (let i = 0; i < product.rating; i++) {
                 let starIcon = document.createElement("i");
-                starIcon.className = "fa-solid fa-star"; // tam sarı dolu ulduz
+                starIcon.className = "fa-solid fa-star"; 
                 stars.appendChild(starIcon);
               }
               

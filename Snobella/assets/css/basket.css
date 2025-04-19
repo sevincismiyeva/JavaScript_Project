@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yellowtail&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+}
+.btn a{
+  text-decoration: none;
+  color: black;
+  padding-left: 5px;
+}
+.username {
+    border: none;
+  }
+
+@media (max-width: 1200px) {
+  .search .w-75 {
+    width: 100% !important;
+    padding-left: 0 !important;
+  }
+
+  .search {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .navbar .container-xl {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .icons {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar .container-xl {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .search {
+    order: 3;
+  }
+
+  .icons {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .icons .btn {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .basket_container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .basket_left {
+    flex: 2;
+  }
+  
+  .basket_card {
+    display: flex;
+    gap: 20px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+  
+  .basket_img img {
+    width: 120px;
+    border-radius: 10px;
+  }
+  
+  .basket_content h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  
+  .price {
+    margin-left: auto;
+    font-weight: bold;
+  }
+  
+  .basket_actions {
+    display: flex;
+    gap: 100px;
+    margin-top: 10px;
+    justify-content: flex-end;
+    margin-left: 30rem;
+  }
+  .title{
+    display: flex;
+  }
+  
+  .action_btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .basket_right {
+    flex: 1;
+  }
+  
+  .summary_box {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  
+  .summary_row,
+  .summary_total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .summary_total {
+    font-weight: bold;
+    font-size: 16px;
+    border-top: 1px dashed #ccc;
+    padding-top: 10px;
+  }
+  
+  .promo_input {
+    display: flex;
+    margin-top: 15px;
+  }
+  
+  .promo_input input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+  }
+  
+  .apply_btn {
+    background-color: #f95d5d;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+  }
+  
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .confirm_btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .cash_btn {
+    border: 1px solid #000;
+    background-color: white;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .count-area {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid #bda9a9;
+    border-radius: 5px;
+    padding: 0 5px;
+    margin-top: 10px;
+  }
+  .count {
+    font-size: 20px;
+    margin: 0;
+  }
+  .minus-btn,
+  .plus-btn {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 25px;
+  }
+  .minus-btn:disabled {
+    cursor: not-allowed;
+  }
+  .clear-basket{
+    margin: 20px auto;
+    display: block;
+  }
+  

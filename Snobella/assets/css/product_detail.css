@@ -13,7 +13,11 @@
 .username {
     border: none;
   }
-
+  .btn a{
+    text-decoration: none;
+    color: black;
+    padding-left: 5px;
+  }
 
 @media (max-width: 1200px) {
   .search .w-75 {
@@ -285,8 +289,8 @@
   }
   
   .quantity-selector button:hover {
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
+    background-color: #c23b3d;
+  
   }
   
   .quantity-selector input {
