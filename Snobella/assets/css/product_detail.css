@@ -10,6 +10,10 @@
   margin: 0 auto;
 }
 
+.username {
+    border: none;
+  }
+
 
 @media (max-width: 1200px) {
   .search .w-75 {
@@ -55,3 +59,248 @@
     padding: 6px 10px;
   }
 }
+
+
+
+.detail {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+  }
+  .shoulderbag{
+    padding-bottom: 40px;
+  }
+  
+  .breadcrumb {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: gray;
+  }
+  
+  .product-container {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .fourimage {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .fourimage img {
+    width: 72px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .main-image {
+    position: relative;
+    background-color: #F9F9F9;
+    width: 456px;
+  }
+  
+  .main-image img {
+    width: 340px;
+    border-radius: 12px;
+    object-fit: contain;
+    margin: 35px auto 0 auto; 
+    display: block;
+  }
+  
+  .discount-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #e74c3c;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+  
+  .wishlist-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #c0392b;
+  }
+  
+  .product-content {
+    flex: 1;
+  }
+  
+  .product-content h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .price-options {
+    display: flex;
+    width: 500px;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .price-options button {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 18px 10px;
+    font-size: 14px;
+    border-radius: 8px;
+    width: 224px;
+    word-spacing: 5px;
+  }
+  
+  .price-options .highlight { 
+    border: 1px solid #e74c3c;
+  }
+  .price-options .highlight strong { 
+    color: red;
+  }
+
+  .size_color{
+    display: flex;
+    align-items: center;
+    gap: 13rem;
+  }
+  
+  .size-selector,
+  .color-selector {
+    margin: 10px 0;
+  }
+  
+  .size-selector span,
+  .color-selector span {
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: bold;
+    padding-bottom: 15px;
+  }
+  
+  .size-selector button{
+    background-color: white;
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .color-selector .color {
+    background-color: white;
+    margin-right: 5px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+  }
+  
+  .color.orange { background-color: #CD5C0B; }
+  .color.green { background-color: #0085FF; }
+  .color.blue { background-color: #35783B; }
+  .color.pink { background-color: #ED0875; }
+  
+  .buttons {
+    margin-top: 25px;
+    display: flex;
+    gap: 5px;
+  }
+  
+  .add-to-cart {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    width: 240px;
+  }
+  
+  .cash-payment {
+    background-color: white;
+    border: 1px solid #555;
+    padding: 10px 20px;
+    border-radius: 8px;
+    width: 240px;
+  }
+  
+  .whatsapp-order {
+    display: inline-block;
+    margin-top: 10px;
+    color: #000000;
+  }
+  
+  .description-tabs {
+    display: flex;
+    gap: 20px;
+    border-bottom: 2px solid #eee;
+    padding-top: 70px;
+
+  }
+  
+  .tab {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .tab.active {
+    border-bottom: 2px solid red;
+    font-weight: bold;
+  }
+  
+  .description-text {
+    padding-top: 45px;
+    color: #777;
+    font-size: 14px;
+  }
+
+
+
+  .quantity-selector {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  
+  .quantity-selector button {
+    background-color: #DF4244;
+    color: #fff;
+    border: none;
+    padding: 6px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .quantity-selector button:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+  }
+  
+  .quantity-selector input {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5.5px 0;
+    outline: none;
+  }
+  
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+  
+  
