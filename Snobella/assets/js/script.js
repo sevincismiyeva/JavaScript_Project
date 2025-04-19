@@ -56,10 +56,18 @@ document.addEventListener("DOMContentLoaded", async () => {
                 window.location.href = `product_detail.html?id=${product.id}`;
             });
 
-            let discount = document.createElement("div");
-            discount.className = "discount-badge";
-            discount.textContent = `${product.discount} %`;
-            card.appendChild(discount);
+            let badge = document.createElement("div");
+            badge.className = "discount-badge";
+
+            if (!isNaN(product.discount)) {
+                badge.textContent = `${product.discount} %`;
+                badge.style.backgroundColor = "#DF4244"; 
+              } else {
+                badge.textContent = "New";
+                badge.style.backgroundColor = "#4CAF50"; 
+              }
+              
+              card.appendChild(badge);
 
             let heartIcon = document.createElement("i");
             heartIcon.classList.add("fa-regular", "fa-heart", "card-heart","wishlist-icon");
@@ -83,12 +91,19 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             let stars = document.createElement("div");
             stars.className = "stars";
-            stars.textContent = "⭐".repeat(product.rating);
-            card.appendChild(stars);
+            for (let i = 0; i < product.rating; i++) {
+                let starIcon = document.createElement("i");
+                starIcon.className = "fa-solid fa-star"; // tam sarı dolu ulduz
+                stars.appendChild(starIcon);
+              }
+              
+              card.appendChild(stars);
+
+            
 
             let title = document.createElement("p");
             title.className = "product-title";
-            title.textContent = `${product.title.slice(0, 18)}. . . ${product.description}`;
+            title.textContent = `${product.title} ${product.description}`;
             card.appendChild(title);
 
 
@@ -97,11 +112,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             const currentPrice = document.createElement("span");
             currentPrice.className = "current-price";
-            currentPrice.textContent = `$${product.price}`;
+            currentPrice.textContent = `$${product.price}.00`;
 
             const oldPrice = document.createElement("span");
             oldPrice.className = "old-price";
-            oldPrice.textContent = `From $${product.oldPrice}`;
+            oldPrice.textContent = `From $${product.oldPrice}.00`;
 
             priceDiv.appendChild(currentPrice);
             priceDiv.appendChild(oldPrice);
@@ -110,7 +125,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
             let addBtn = document.createElement("button");
-            addBtn.classList.add("btn", "btn-primary", "add-to-cart");
+            addBtn.classList.add( "add-to-cart");
             addBtn.textContent = "Add to card";
             card.appendChild(addBtn);
 
