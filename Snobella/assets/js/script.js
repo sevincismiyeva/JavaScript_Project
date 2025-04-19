@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             card.appendChild(discount);
 
             let heartIcon = document.createElement("i");
-            heartIcon.classList.add("fa-regular", "fa-heart", "card-heart");
+            heartIcon.classList.add("fa-regular", "fa-heart", "card-heart","wishlist-icon");
             card.appendChild(heartIcon);
 
             if (currentUser?.wishlist?.some(item => item.id === product.id)) {
