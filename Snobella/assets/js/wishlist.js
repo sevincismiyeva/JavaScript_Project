@@ -9,9 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!currentUser) {
         toast("Please login to access your wishlist.");
         setTimeout(() => {
-            window.location.href = "login.html"; 
+            window.location.href = "login.html";
         }, 2000);
-        return; 
+        return;
     }
 
     let login = document.querySelector(".login");
@@ -38,23 +38,23 @@ document.addEventListener("DOMContentLoaded", () => {
     clearBtn.classList.add("btn", "btn-success", "clear-wishlist");
     clearBtn.style.margin = "20px auto";
     clearBtn.style.display = "block";
-    clearBtn.style.textAlign="center"
+    clearBtn.style.textAlign = "center"
 
     clearBtn.addEventListener("click", () => {
         let userIndex = users.findIndex(user => user.id === currentUser.id);
         let wishlist = currentUser.wishlist || [];
-    
+
         if (wishlist.length === 0) {
             toast("Wishlist is already empty");
             return;
         }
-    
+
         if (confirm("Are you sure you want to clear the wishlist?")) {
             wishlist = [];
             users[userIndex].wishlist = wishlist;
             localStorage.setItem("users", JSON.stringify(users));
             toast("All products removed from wishlist");
-    
+
             setTimeout(() => {
                 window.location.reload();
             }, 1000);
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     favRight.appendChild(clearBtn)
 
 
- let userWishlist = currentUser.wishlist;
+    let userWishlist = currentUser.wishlist;
 
     function createWishlistItem() {
 
@@ -81,16 +81,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!isNaN(item.discount)) {
                 badge.textContent = `${item.discount} %`;
-                badge.style.backgroundColor = "#DF4244"; 
-              } else {
+                badge.style.backgroundColor = "#DF4244";
+            } else {
                 badge.textContent = "New";
-                badge.style.backgroundColor = "#4CAF50"; 
-              }
-              
-              productCard.appendChild(badge);
-              
+                badge.style.backgroundColor = "#4CAF50";
+            }
 
-            
+            productCard.appendChild(badge);
+
+
+
             let heartIcon = document.createElement("i");
             heartIcon.classList.add("fa-heart", "wishlist-icon");
             if (currentUser.wishlist.some(w => w.id === item.id)) {
@@ -99,13 +99,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 heartIcon.classList.add("fa-regular");
             }
 
-            
+
 
             let img = document.createElement("img");
             img.classList.add("product-img");
             img.src = item.image;
 
-            
+
             let stars = document.createElement("div");
             stars.classList.add("stars");
             for (let i = 0; i < 5; i++) {
@@ -114,12 +114,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 stars.appendChild(star);
             }
 
-          
+
             let title = document.createElement("p");
             title.classList.add("product-title");
             title.textContent = item.title.slice(0, 60) + "...";
 
-          
+
             let priceDiv = document.createElement("div");
             priceDiv.classList.add("price");
 
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             priceDiv.append(currentPrice, oldPrice);
 
-            
+
             let addToCart = document.createElement("button");
             addToCart.classList.add("add-to-cart");
             addToCart.textContent = "Add to card";
@@ -141,11 +141,11 @@ document.addEventListener("DOMContentLoaded", () => {
             addToCart.addEventListener("click", () => {
                 addBasket(item);
             });
-            
+
             function addBasket(findProduct) {
                 let users = JSON.parse(localStorage.getItem("users")) || [];
                 let currentUser = users.find((user) => user.isLogined == true);
-            
+
                 if (!currentUser) {
                     alert("Please login to add to basket");
                     setTimeout(() => {
@@ -153,34 +153,34 @@ document.addEventListener("DOMContentLoaded", () => {
                     }, 3000);
                     return;
                 }
-            
+
                 let userIndex = users.findIndex((user) => user.id == currentUser.id);
                 let basket = currentUser.basket || [];
-            
+
                 let existProduct = basket.find((product) => product.id == findProduct.id);
                 if (!existProduct) {
-            
+
                     basket.push({ ...findProduct, count: 1 });
                 } else {
                     existProduct.count += 1;
                 }
-            
+
                 users[userIndex].basket = basket;
                 localStorage.setItem("users", JSON.stringify(users));
                 toast("Product add seccessfuly");
                 basketCount();
             }
 
-            
+
             let removeBtn = document.createElement("button");
-            removeBtn.classList.add("btn", "btn-danger","remove-btn");
+            removeBtn.classList.add("btn", "btn-danger", "remove-btn");
             removeBtn.textContent = "Remove";
 
             removeBtn.addEventListener("click", () => {
                 removeProduct(item.id);
             });
 
-        
+
             productCard.append(heartIcon, img, stars, title, priceDiv, addToCart, removeBtn);
             wishlistContainer.appendChild(productCard);
         });
@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 1000);
         }
 
-        
+
     }
 
     updateUserStatus();

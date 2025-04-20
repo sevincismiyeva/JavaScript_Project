@@ -82,8 +82,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
 
-
-
     function updateUserStatus() {
         if (currentUser) {
             login.classList.add("d-none");
