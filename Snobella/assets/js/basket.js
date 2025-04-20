@@ -62,53 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-
-    function incerement(productId, countElem, minusBtnElem) {
-
-        let existProduct = basket.find((product) => product.id == productId);
-        if (existProduct) {
-            existProduct.count++;
-            countElem.textContent = existProduct.count;
-
-            if (existProduct.count > 1) {
-                minusBtnElem.removeAttribute("disabled");
-            }
-
-            users[userIndex].basket = basket;
-            localStorage.setItem("users", JSON.stringify(users));
-
-            let priceElem = countElem.closest(".basket-item").querySelector(".price");
-            priceElem.textContent = "$" + (existProduct.price * existProduct.count).toFixed(2);
-        }
-        totalPrice();
-    }
-
-    function decrement(productId, countElem, minusBtnElem) {
-
-        let existProduct = basket.find((product) => product.id == productId);
-        if (existProduct) {
-
-            if (existProduct.count <= 1) {
-                minusBtnElem.setAttribute("disabled", "true");
-                return;
-            }
-
-            existProduct.count--;
-            countElem.textContent = existProduct.count;
-
-            if (existProduct.count === 1) {
-                minusBtnElem.setAttribute("disabled", "true");
-            }
-
-            users[userIndex].basket = basket;
-            localStorage.setItem("users", JSON.stringify(users));
-
-            let priceElem = countElem.closest(".basket-item").querySelector(".price");
-            priceElem.textContent = "$" + (existProduct.price * existProduct.count).toFixed(2);
-        }
-        totalPrice();
-    }
-
     function totalPrice() {
         let paymentCash = 0;
         basket.forEach((product) => {
