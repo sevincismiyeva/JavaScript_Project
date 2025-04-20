@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     let products = (await axios("http://localhost:3000/products")).data;
 
+    let filteredProducts = [...products];
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -14,6 +15,74 @@ document.addEventListener("DOMContentLoaded", async () => {
     let login = document.querySelector(".login");
     let register = document.querySelector(".register");
     let logout = document.querySelector(".logout");
+
+    let sortByAZ = document.querySelector(".az");
+    let sortByZA = document.querySelector(".za");
+
+    sortByAZ.addEventListener("click", function (e) {
+        e.preventDefault();
+        sortProductByAz();
+    });
+
+    sortByZA.addEventListener("click", function (e) {
+        e.preventDefault();
+        sortProductByZa();
+    })
+
+    function sortProductByAz() {
+        filteredProducts = [...filteredProducts].sort((a, b) => a.title.localeCompare(b.title));
+        document.querySelector(".cards").innerHTML = "";
+        createUserCard(filteredProducts);
+    }
+
+    function sortProductByZa() {
+        filteredProducts = [...filteredProducts].sort((a, b) => b.title.localeCompare(a.title));
+        document.querySelector(".cards").innerHTML = "";
+        createUserCard(filteredProducts);
+    }
+
+    let highBtn = document.querySelector(".high");
+    let lowBtn = document.querySelector(".low");
+
+    highBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        highToLow();
+    });
+    lowBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        lowToHigh();
+    });
+
+    function highToLow() {
+        filteredProducts = products.sort((a, b) => b.price - a.price);
+        document.querySelector(".cards").innerHTML = "";
+        createUserCard(filteredProducts);
+    }
+
+    function lowToHigh() {
+        filteredProducts = products.sort((a, b) => a.price - b.price);
+        document.querySelector(".cards").innerHTML = "";
+        createUserCard(filteredProducts);
+    }
+
+    let searchInput = document.querySelector(".search-input");
+    let searchBtn = document.querySelector(".search-btn");
+    searchBtn.style.cursor = "pointer";
+    
+    searchBtn.addEventListener("click", function(e){
+        e.preventDefault();
+        searchProduct();
+    });
+
+    function searchProduct() {
+        let searchValue = searchInput.value;
+        filteredProducts = products.filter((product) => product.title.toLowerCase().includes(searchValue.trim().toLowerCase()));
+        document.querySelector(".cards").innerHTML = "";
+        createUserCard(filteredProducts);
+    }
+
+
+
 
     function updateUserStatus() {
         if (currentUser) {
@@ -44,9 +113,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     logout.addEventListener("click", logoutUser);
 
-    function createUserCard() {
+    function createUserCard(filteredProducts) {
         let cards = document.querySelector(".cards");
-        products.forEach((product) => {
+        filteredProducts.forEach((product) => {
 
             let card = document.createElement("div");
             card.classList.add("product-card");
@@ -61,16 +130,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             if (!isNaN(product.discount)) {
                 badge.textContent = `${product.discount} %`;
-                badge.style.backgroundColor = "#DF4244"; 
-              } else {
+                badge.style.backgroundColor = "#DF4244";
+            } else {
                 badge.textContent = "New";
-                badge.style.backgroundColor = "#4CAF50"; 
-              }
-              
-              card.appendChild(badge);
+                badge.style.backgroundColor = "#4CAF50";
+            }
+
+            card.appendChild(badge);
 
             let heartIcon = document.createElement("i");
-            heartIcon.classList.add("fa-regular", "fa-heart", "card-heart","wishlist-icon");
+            heartIcon.classList.add("fa-regular", "fa-heart", "card-heart", "wishlist-icon");
             card.appendChild(heartIcon);
 
             if (currentUser?.wishlist?.some(item => item.id === product.id)) {
@@ -93,17 +162,17 @@ document.addEventListener("DOMContentLoaded", async () => {
             stars.className = "stars";
             for (let i = 0; i < product.rating; i++) {
                 let starIcon = document.createElement("i");
-                starIcon.className = "fa-solid fa-star"; 
+                starIcon.className = "fa-solid fa-star";
                 stars.appendChild(starIcon);
-              }
-              
-              card.appendChild(stars);
+            }
 
-            
+            card.appendChild(stars);
+
+
 
             let title = document.createElement("p");
             title.className = "product-title";
-            title.textContent = `${product.title} ${product.description}`;
+            title.textContent = `${product.title} ${product.description.slice(0, 18)} . . .`;
             card.appendChild(title);
 
 
@@ -125,7 +194,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
             let addBtn = document.createElement("button");
-            addBtn.classList.add( "add-to-cart");
+            addBtn.classList.add("add-to-cart");
             addBtn.textContent = "Add to card";
             card.appendChild(addBtn);
 
@@ -135,7 +204,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
 
 
-            
+
             cards.appendChild(card);
 
 
@@ -222,17 +291,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         basketCount();
     }
 
-    // function basketCount() {
-    //     let result = currentUser.basket.reduce(
-    //         (acc, product) => acc + product.count, 0);
+    function basketCount() {
+        let result = currentUser.basket.reduce(
+            (acc, product) => acc + product.count, 0);
 
-    //     let countIcon = document.querySelector(".basketIcon sup");
-    //     countIcon.textContent = result;
-    // }
+        let countIcon = document.querySelector(".btn sup");
+        countIcon.textContent = result;
+    }
 
-    // basketCount();
+    basketCount();
     updateUserStatus();
-    createUserCard();
+    createUserCard(filteredProducts);
 });
 
 let toast = (text) => {
@@ -242,7 +311,7 @@ let toast = (text) => {
         position: "right",
         stopOnFocus: true,
         style: {
-            background: "linear-gradient(to right, #00b09b,rgb(87, 132, 183))",
+            background: "linear-gradient(to right,rgb(218, 164, 164),rgb(203, 101, 101))",
         },
         onClick: function () { }
     }).showToast();

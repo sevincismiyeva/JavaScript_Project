@@ -85,7 +85,7 @@ let toast= (text) => {
         position: "right", 
         stopOnFocus: true, 
         style: {
-          background: "linear-gradient(to right, #00b09b,rgb(87, 132, 183))",
+          background: "linear-gradient(to right,rgb(218, 164, 164),rgb(203, 101, 101))",
         },
         
         onClick: function(){} 

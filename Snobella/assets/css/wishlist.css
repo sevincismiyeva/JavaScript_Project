@@ -9,14 +9,20 @@
 .container {
   margin: 0 auto;
 }
-.btn a{
+
+.btn a {
   text-decoration: none;
   color: black;
   padding-left: 5px;
 }
+
 .username {
-    border: none;
-  }
+  border: none;
+  width: 5rem;
+  border-radius: 5px;
+  background-color: rgb(244, 202, 202);
+  font-family: sans-serif;
+}
 
 @media (max-width: 1200px) {
   .search .w-75 {
@@ -76,7 +82,7 @@
   height: 344px;
   background: white;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   padding: 20px;
 }
 
@@ -97,7 +103,7 @@
   font-family: Poppins, sans-serif;
 }
 
-.username {
+.john{
   font-weight: 600;
   margin: 0;
 }
@@ -181,6 +187,7 @@
   top: 10px;
   right: 10px;
   background-color: white;
+  color: red;
   border-radius: 50%;
   height: 30px;
   width: 30px;
@@ -194,7 +201,7 @@
   width: 60%;
   height: 250px;
   object-fit: contain;
-  margin: 0 auto 15px auto; 
+  margin: 0 auto 15px auto;
   display: block;
 }
 
@@ -231,10 +238,10 @@
 .old-price {
   color: #363636BF;
   font-family: Poppins;
-font-weight: 400;
-font-size: 16px;
-line-height: 170%;
-letter-spacing: 0%;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 170%;
+  letter-spacing: 0%;
 
 }
 
@@ -255,9 +262,11 @@ letter-spacing: 0%;
   background-color: #ff1e1e;
   color: #fff;
 }
-.remove_btn{
+
+.remove_btn {
   padding-top: 15px;
 }
+
 .discount-badge {
   position: absolute;
   top: 10px;
@@ -325,5 +334,41 @@ letter-spacing: 0%;
   .stars i {
     font-size: 13px;
     margin-right: 3px;
+  }
+}
+
+
+
+
+@media (max-width: 992px) {
+  .container>div {
+    flex-direction: column;
+  }
+
+  .fav_left,
+  .fav_right {
+    width: 100%;
+  }
+
+  .cards {
+    padding: 0;
+    margin-top: 20px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .product-title {
+    font-size: 15px;
+    line-height: 150%;
+  }
+
+  .add-to-cart {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .fav_left {
+    padding: 15px;
   }
 }

@@ -9,6 +9,13 @@
 .container {
   margin: 0 auto;
 }
+
+.username{
+  width: 5rem;
+  border-radius: 5px;
+  background-color: rgb(244, 202, 202);
+  font-family: sans-serif;
+}
 .btn a{
   text-decoration: none;
   color: black;
@@ -305,3 +312,62 @@ letter-spacing: 0%;
     margin-right: 3px;
   }
 }
+
+
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+}
+
+
+ .dropdown-btn {
+    background-color: rgb(245, 175, 175);
+    color: white;
+    padding: 10px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.dropdown-btn:hover {
+    background-color: rgb(245, 147, 147);
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 6px;
+    
+}
+
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.2s;
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+} 

@@ -17,10 +17,9 @@
             <img src="./assets/images/Snobella.png" alt="Logo" class="img-fluid" style="max-height: 40px;" />
             <form class="d-flex align-items-center flex-grow-1 mx-4 search" role="search">
                 <div class="position-relative w-75" style="padding-left: 5rem;">
-                    <input class="form-control " type="search" placeholder="Search all product" aria-label="Search"
+                    <input class="form-control search-input" type="text" placeholder="Search all product" aria-label="Search"
                         style="background-color: #F7F9FC;" />
-                    <i
-                        class="fa-solid fa-magnifying-glass position-absolute top-50 end-0 translate-middle-y me-3 text-muted"></i>
+                    <i  class="fa-solid fa-magnifying-glass position-absolute top-50 end-0 translate-middle-y me-3 text-muted search-btn"></i>
                 </div>
             </form>
             <div class="icons d-flex align-items-center gap-3">
@@ -36,10 +35,12 @@
                     </ul>
                 </div>
                 <button class="btn" type="button">
-                    <i class="fa-regular fa-heart"></i><a href="wishlist.html" >Wishlist</a> 
+                    <i class="fa-regular fa-heart"></i><a href="wishlist.html">Wishlist</a>
                 </button>
                 <button class="btn" type="button">
-                    <img src="./assets/images/bag.png" alt="Basket" style="width: 20px;" /><a href="basket.html">Basket</a> 
+                    <img src="./assets/images/bag.png" alt="Basket" style="width: 20px;" /><a href="basket.html">Basket
+                        <sup>0</sup>
+                    </a>
                 </button>
             </div>
         </div>
@@ -50,12 +51,13 @@
             <div class="first">
                 <p class="off">30% off</p>
                 <img src="./assets/images/Handbag products.png" alt="">
-                <p style="padding-top: 25px;">It is a long established fact that a reader will be distracted by the readable content expound the
+                <p style="padding-top: 25px;">It is a long established fact that a reader will be distracted by the
+                    readable content expound the
                     actual teachings of the great explorer </p>
                 <img src="./assets/images/Group 25541.png" alt="">
             </div>
             <div class="second">
-                <img src="./assets/images/bags.png" alt="" >
+                <img src="./assets/images/bags.png" alt="">
             </div>
         </div>
     </section>
@@ -66,9 +68,23 @@
                 <img src="./assets/images/Bestseller.png"></img>
                 <img src="./assets/images/view.png"></img>
             </div>
-          <div class="row ">
-            <div class="cards">
-              <!-- <div class="product-card">
+            <div class="dropdown">
+                <button class="dropdown-btn">Sort by:</button>
+                <div class="dropdown-content sort">
+                    <a href="#" class="az">A to Z</a>
+                    <a href="#" class="za">Z to A</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropdown-btn">Qiymətə görə:</button>
+                <div class="dropdown-content sort">
+                    <a href="#" class="high">high-to-low</a>
+                    <a href="#" class="low">low-to-high</a>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="cards">
+                    <!-- <div class="product-card">
                 <div class="discount-badge">30 %</div>
                 <i class="fa-regular fa-heart wishlist-icon"></i>
                 <img src="./assets/images/handbag.png" alt="Pink Handbag" class="product-img" />
@@ -88,13 +104,13 @@
       
                 <button class="add-to-cart">Add to card</button>
               </div> -->
+                </div>
             </div>
-          </div>
         </div>
-      </section>
-      
+    </section>
 
-      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
